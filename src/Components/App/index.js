@@ -1,28 +1,12 @@
 import React, { useRef } from "react";
-import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { Plane, OrbitControls } from "@react-three/drei";
 import { Physics, usePlane } from "@react-three/cannon";
 
 import css from "./App.module.css";
-import SplineModel from "../SplineModel";
-import MainScene1 from "../MainScene1";
-import MainScene2 from "../MainScene2";
-
-function PhyPlane({ color, opacity, ...props }) {
-  const [ref] = usePlane(() => ({ ...props }));
-
-  return (
-    <Plane args={[40, 40]} ref={ref}>
-      <meshPhongMaterial
-        side={THREE.DoubleSide}
-        transparent
-        opacity={opacity}
-        color={color}
-      />
-    </Plane>
-  );
-}
+import MainScene1 from "../Scenes/MainScene1";
+import MainScene2 from "../Scenes/MainScene2";
+import PhyPlane from "../PhyPlane";
 
 function App() {
   const orbCam = useRef();
@@ -37,7 +21,6 @@ function App() {
         />
       </Physics>
 
-      {/* <SplineModel></SplineModel> */}
       <MainScene1></MainScene1>
       <MainScene2></MainScene2>
 
