@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Html, OrbitControls } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 
-import css from "./App.module.css";
+import style from "./App.module.css";
 import MainScene1 from "../Scenes/MainScene1";
 import MainScene2 from "../Scenes/MainScene2";
 import PhyPlane from "../PhyPlane";
+import Home from "../Pages/Home";
 
 function App() {
   const state = useThree();
@@ -95,6 +96,10 @@ function App() {
       <MainScene1></MainScene1>
       <MainScene2></MainScene2>
       <OrbitControls />
+
+      <Html className={style.container}>
+        <Home />
+      </Html>
 
       {/* scene1Guide for camera positioning */}
       <mesh ref={scene1Guide} position={[0, 0, 0]}>
