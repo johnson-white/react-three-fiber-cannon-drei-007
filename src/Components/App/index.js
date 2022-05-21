@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Html, OrbitControls } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
@@ -9,6 +11,7 @@ import MainScene1 from "../Scenes/MainScene1";
 import MainScene2 from "../Scenes/MainScene2";
 import PhyPlane from "../PhyPlane";
 import Home from "../Pages/Home";
+import AboutMe from "../Pages/AboutMe";
 
 function App() {
   const state = useThree();
@@ -98,7 +101,13 @@ function App() {
       <OrbitControls />
 
       <Html className={style.container}>
-        <Home />
+        <BrowserRouter>
+          <Routes>
+            {/* this Home is rendered by default: */}
+            <Route path="/" element={<Home />} />
+            <Route path="aboutme" element={<AboutMe />} />
+          </Routes>
+        </BrowserRouter>
       </Html>
 
       {/* scene1Guide for camera positioning */}
