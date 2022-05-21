@@ -5,6 +5,9 @@ import { Plane, OrbitControls } from "@react-three/drei";
 import { Physics, usePlane } from "@react-three/cannon";
 
 import css from "./App.module.css";
+import SplineModel from "../SplineModel";
+import MainScene1 from "../MainScene1";
+import MainScene2 from "../MainScene2";
 
 function PhyPlane({ color, opacity, ...props }) {
   const [ref] = usePlane(() => ({ ...props }));
@@ -34,9 +37,9 @@ function App() {
         />
       </Physics>
 
-      <ambientLight intensity={0.5} />
-      <pointLight color="red" intensity={5} position={[10, 1, 0]} />
-      <pointLight color="blue" intensity={5} position={[-10, 1, 0]} />
+      {/* <SplineModel></SplineModel> */}
+      <MainScene1></MainScene1>
+      <MainScene2></MainScene2>
 
       <OrbitControls ref={orbCam} />
     </Canvas>
