@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -8,10 +8,10 @@ import css from "./App.module.css";
 import MainScene1 from "../Scenes/MainScene1";
 import MainScene2 from "../Scenes/MainScene2";
 import PhyPlane from "../PhyPlane";
-import { Vector3 } from "three";
 
 function App() {
   const state = useThree();
+  const scene1Guide = useRef();
 
   /*   const [shots, setShots] = useState([
     { scene1: { pos: new Vector3(0, 0, 0), target: new Vector3(0, 0, 0) } },
@@ -19,7 +19,18 @@ function App() {
     { scene3: { pos: new Vector3(0, 0, 0), target: new Vector3(0, 0, 0) } },
   ]); */
 
-  /* TODO: write useEffect that sets up camera quaternion on render */
+  //useEffect sets up camera to follow box mesh on mount
+  useEffect(() => {
+    function getTarget() {
+      const lookAtPosition = scene1Guide.current.position.clone();
+      const lookFromPosition = lookAtPosition
+        .clone()
+        .add(new THREE.Vector3(0, 5, 10));
+
+      updateCamera(lookAtPosition, lookFromPosition);
+    }
+    getTarget();
+  }, []);
 
   const [view, setView] = useState({
     initialPosition: new THREE.Vector3(),
@@ -37,7 +48,7 @@ function App() {
     //camera rotates to new position
     st.camera.quaternion.slerp(
       view.targetQuaternion,
-      THREE.MathUtils.damp(0, 1, 2, dt)
+      THREE.MathUtils.damp(0, 1, 1, dt / 10) // divided further for more granular slerp
     );
   });
 
@@ -84,6 +95,12 @@ function App() {
       <MainScene1></MainScene1>
       <MainScene2></MainScene2>
       <OrbitControls />
+
+      {/* scene1Guide for camera positioning */}
+      <mesh ref={scene1Guide} position={[0, 0, 0]}>
+        <boxBufferGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
+        <meshPhysicalMaterial attach="material" color="red" />
+      </mesh>
     </>
   );
 }
