@@ -19,44 +19,40 @@ function App() {
   const [activeScene, setActiveScene] = useState("home");
   const [scenes, setScenes] = useState([
     {
-      home: {
-        lookFrom: new THREE.Vector3(0, 0, 0),
-        lookAt: new THREE.Vector3(0, 0, 0),
-      },
+      name: "home",
+      lookFrom: new THREE.Vector3(-1, 0, 5), //acts as moving camera, recommend adjusting first
+      lookAt: new THREE.Vector3(1, 1, 0), //direction you are looking in, recommend adjusting first
     },
     {
-      aboutMe: {
-        lookFrom: new THREE.Vector3(0, 0, 0),
-        lookAt: new THREE.Vector3(0, 0, 0),
-      },
+      name: "aboutMe",
+      lookFrom: new THREE.Vector3(1, 0, 5),
+      lookAt: new THREE.Vector3(1, 1, 0),
     },
     {
-      scene3: {
-        lookFrom: new THREE.Vector3(0, 0, 0),
-        lookAt: new THREE.Vector3(0, 0, 0),
-      },
+      name: "scene3",
+      lookFrom: new THREE.Vector3(0, 0, 0),
+      lookAt: new THREE.Vector3(0, 0, 0),
     },
   ]);
 
-  //useEffect sets up camera to follow box mesh on mount
   useEffect(() => {
-    function getTarget() {
-      const lookAtPosition = scene1Guide.current.position.clone();
-      const lookFromPosition = lookAtPosition
-        .clone()
-        .add(new THREE.Vector3(0, 5, 10));
-
-      console.log(`lookAtPosition: ${JSON.stringify(lookAtPosition)}`);
-      console.log(`lookFromPosition: ${JSON.stringify(lookFromPosition)}`);
-
-      updateCamera(lookAtPosition, lookFromPosition);
+    function updateSceneForCamera() {
+      //if activeScene exists in `scenes` state, use those position values for camera
+      scenes.forEach((scene) => {
+        if (scene.name.toLowerCase() === activeScene.toLowerCase()) {
+          updateCamera(scene.lookAt, scene.lookFrom);
+          console.log(
+            `${scene.name} ${JSON.stringify(scene.lookAt)} ${JSON.stringify(
+              scene.lookFrom
+            )}`
+          );
+        }
+      });
     }
-    getTarget();
-  }, []);
+    updateSceneForCamera();
+  }, [activeScene]);
 
   const [view, setView] = useState({
-    initialPosition: new THREE.Vector3(),
-    initialQuaternion: new THREE.Quaternion(),
     targetPosition: new THREE.Vector3(0, 0, 10),
     targetQuaternion: new THREE.Quaternion(),
   });
@@ -70,7 +66,7 @@ function App() {
     //camera rotates to new position
     st.camera.quaternion.slerp(
       view.targetQuaternion,
-      THREE.MathUtils.damp(0, 1, 1, dt / 10) // divided further for more granular slerp
+      THREE.MathUtils.damp(0, 1, 1, dt) // divided further for more granular slerp
     );
   });
 
@@ -78,7 +74,7 @@ function App() {
     setActiveScene(string);
   }
 
-  function updateCamera(lookAtPosition, targetPosition) {
+  function updateCamera(lookAtPosition, lookFromPosition) {
     const initialPosition = state.camera.position.clone();
     // console.log("initialPosition", initialPosition);
 
@@ -86,7 +82,7 @@ function App() {
     // console.log("initialQuaternion", initialQuaternion);
 
     //move camera to target sphere's external cam location
-    state.camera.position.copy(targetPosition);
+    state.camera.position.copy(lookFromPosition);
     //rotate camera to face target sphere
     state.camera.lookAt(lookAtPosition);
 
@@ -94,11 +90,8 @@ function App() {
     const targetQuaternion = state.camera.quaternion.clone();
     // console.log("quaternion", quaternion);
 
-    //if setData is null(first onClick execution) store all values in state
     setView({
-      initialPosition,
-      initialQuaternion,
-      targetPosition,
+      targetPosition: lookFromPosition,
       targetQuaternion,
     });
 
@@ -110,17 +103,8 @@ function App() {
 
   return (
     <>
-      <Physics gravity={[0, -5, 0]}>
-        <PhyPlane
-          color="white"
-          opacity={1}
-          position={[0, 0, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-        />
-      </Physics>
       <MainScene1></MainScene1>
       <MainScene2></MainScene2>
-      <OrbitControls />
 
       <Html className={style.container}>
         <BrowserRouter>
@@ -140,7 +124,7 @@ function App() {
 
       {/* scene1Guide for camera positioning */}
       <mesh ref={scene1Guide} position={[0, 0, 0]}>
-        <boxBufferGeometry attach="geometry" args={[0.1, 0.1, 0.1]} />
+        <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
         <meshPhysicalMaterial attach="material" color="red" />
       </mesh>
     </>
