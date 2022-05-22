@@ -16,15 +16,16 @@ import AboutMe from "../Pages/AboutMe";
 function App() {
   const state = useThree();
   const scene1Guide = useRef();
+  const [activeScene, setActiveScene] = useState("home");
   const [scenes, setScenes] = useState([
     {
-      scene1: {
+      home: {
         lookFrom: new THREE.Vector3(0, 0, 0),
         lookAt: new THREE.Vector3(0, 0, 0),
       },
     },
     {
-      scene2: {
+      aboutMe: {
         lookFrom: new THREE.Vector3(0, 0, 0),
         lookAt: new THREE.Vector3(0, 0, 0),
       },
@@ -72,6 +73,10 @@ function App() {
       THREE.MathUtils.damp(0, 1, 1, dt / 10) // divided further for more granular slerp
     );
   });
+
+  function updateActiveScene(string) {
+    setActiveScene(string);
+  }
 
   function updateCamera(lookAtPosition, targetPosition) {
     const initialPosition = state.camera.position.clone();
@@ -121,8 +126,14 @@ function App() {
         <BrowserRouter>
           <Routes>
             {/* this Home is rendered by default: */}
-            <Route path="/" element={<Home />} />
-            <Route path="aboutme" element={<AboutMe />} />
+            <Route
+              path="/"
+              element={<Home updateActiveScene={updateActiveScene} />}
+            />
+            <Route
+              path="aboutMe"
+              element={<AboutMe updateActiveScene={updateActiveScene} />}
+            />
           </Routes>
         </BrowserRouter>
       </Html>
