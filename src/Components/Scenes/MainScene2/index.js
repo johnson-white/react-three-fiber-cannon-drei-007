@@ -127,4 +127,4 @@ function MainScene2({ instances, ...props }) {
   );
 }
 
-useGLTF.preload("/mainscene2-transformed.glb");
+useGLTF.preload("./models/mainscene2-transformed.glb");

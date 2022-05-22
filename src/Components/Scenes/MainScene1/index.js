@@ -129,4 +129,4 @@ export default function MainScene1({ ...props }) {
   );
 }
 
-useGLTF.preload("/mainscene1.gltf");
+useGLTF.preload("./models/mainscene1.gltf");
