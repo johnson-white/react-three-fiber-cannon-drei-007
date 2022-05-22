@@ -3,20 +3,21 @@
 Highest level component that:
 
 - animates camera constantly towards camera position and lookAt position ✔️
-- react router for pages, create two pages
-  - use ThreeJS html to display some 2D elements (NavBar, h1, Content, Footer)
+- react router for pages, create two pages ✔️
+  - use ThreeJS html to display some 2D elements (NavBar, h1, Content, Footer) ✔️
 - need to set new camera position and lookAt position when react router Link is clicked and page changes
-- these should be global app states that are updated by child components - perhaps store all scene positions:
+  - function passed to NavBar Links that update an active/current scene state
+  - useEffect in App needs to change position and lookAt position vectors depending on this scene state
+  - store all scene positions in App:
   ```js
   [
-      { scene1: { pos: vector3; target: vector3 } },
-      { scene2: { pos: vector3; target: vector3 } },
-      { scene3: { pos: vector3; target: vector3 } }
+      { scene1: { lookFrom: vector3; lookAt: vector3 } },
+      { scene2: { lookFrom: vector3; lookAt: vector3 } },
+      { scene3: { lookFrom: vector3; lookAt: vector3 } }
   ]
   ```
-  - every scene needs one mesh with useRef
-    - add to origin point for external position, lookAt origin point
-  - function that updates/overrides ({scene: {pos, target}}) passed as props to children
+  Use a mesh as a scene's camera guide so it's easier to change the scene's lookFrom and lookAt values
+  - function that updates/overrides ({scene: {lookFrom, lookAt}}) passed as props to mesh children
 
 User experience:
 

@@ -16,12 +16,26 @@ import AboutMe from "../Pages/AboutMe";
 function App() {
   const state = useThree();
   const scene1Guide = useRef();
-
-  /*   const [shots, setShots] = useState([
-    { scene1: { pos: new Vector3(0, 0, 0), target: new Vector3(0, 0, 0) } },
-    { scene2: { pos: new Vector3(0, 0, 0), target: new Vector3(0, 0, 0) } },
-    { scene3: { pos: new Vector3(0, 0, 0), target: new Vector3(0, 0, 0) } },
-  ]); */
+  const [scenes, setScenes] = useState([
+    {
+      scene1: {
+        lookFrom: new THREE.Vector3(0, 0, 0),
+        lookAt: new THREE.Vector3(0, 0, 0),
+      },
+    },
+    {
+      scene2: {
+        lookFrom: new THREE.Vector3(0, 0, 0),
+        lookAt: new THREE.Vector3(0, 0, 0),
+      },
+    },
+    {
+      scene3: {
+        lookFrom: new THREE.Vector3(0, 0, 0),
+        lookAt: new THREE.Vector3(0, 0, 0),
+      },
+    },
+  ]);
 
   //useEffect sets up camera to follow box mesh on mount
   useEffect(() => {
@@ -30,6 +44,9 @@ function App() {
       const lookFromPosition = lookAtPosition
         .clone()
         .add(new THREE.Vector3(0, 5, 10));
+
+      console.log(`lookAtPosition: ${JSON.stringify(lookAtPosition)}`);
+      console.log(`lookFromPosition: ${JSON.stringify(lookFromPosition)}`);
 
       updateCamera(lookAtPosition, lookFromPosition);
     }
