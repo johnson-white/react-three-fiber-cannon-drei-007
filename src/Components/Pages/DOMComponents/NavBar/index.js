@@ -7,7 +7,7 @@ function NavBar({ updateActiveScene }) {
         <Link to="/" onClick={() => updateActiveScene("home")}>
           Home
         </Link>
-        <Link to="aboutMe" onClick={() => updateActiveScene("aboutMe")}>
+        <Link to="/aboutMe" onClick={() => updateActiveScene("aboutMe")}>
           About Me
         </Link>
       </nav>
