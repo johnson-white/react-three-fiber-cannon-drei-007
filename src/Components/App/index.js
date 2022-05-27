@@ -16,12 +16,15 @@ import AboutMe from "../Pages/AboutMe";
 function App() {
   const state = useThree();
   const scene1Guide = useRef();
+  //activeScene will tell camera where to go when a nav Link is clicked
   const [activeScene, setActiveScene] = useState("home");
+  //scenes state holds the co-ords for each scene (home and aboutMe pages)
+  //modify these to move the camera
   const [scenes, setScenes] = useState([
     {
       name: "home",
-      lookFrom: new THREE.Vector3(0, -50, -30), //acts as moving camera, recommend adjusting first
-      lookAt: new THREE.Vector3(0, 0, 0), //direction you are looking in, recommend adjusting first
+      lookFrom: new THREE.Vector3(0, -50, -30), //camera will look from this position
+      lookAt: new THREE.Vector3(0, 0, 0), //to this position
     },
     {
       name: "aboutMe",
@@ -52,11 +55,13 @@ function App() {
     updateSceneForCamera();
   }, [activeScene]);
 
+  //camera animates to these co-ordinates, these are updated by updateCamera()
   const [view, setView] = useState({
     targetPosition: new THREE.Vector3(0, 0, 10),
     targetQuaternion: new THREE.Quaternion(),
   });
 
+  //constantly animates camera to co-ords above
   useFrame((st, dt) => {
     //camera moves to new position
     st.camera.position.lerp(
@@ -70,6 +75,7 @@ function App() {
     );
   });
 
+  //used by nav Links to setActiveScene
   function updateActiveScene(string) {
     setActiveScene(string);
   }
