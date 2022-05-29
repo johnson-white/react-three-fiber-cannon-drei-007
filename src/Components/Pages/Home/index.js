@@ -6,9 +6,9 @@ function Home({ updateActiveScene }) {
     <>
       <h1>HOME</h1>
       <NavBar updateActiveScene={updateActiveScene}></NavBar>
-      <span style={{ alignSelf: "start" }}>^ Click these! ^</span>
+      <p style={{ alignSelf: "start" }}>(Click the nav buttons!)</p>
       <h2>Hi, I'm Johnson!</h2>
-      <div>Welcome to my brand new 3D website!</div>
+      <p>Welcome to my brand new 3D website!</p>
       <p>
         I started putting this together on the 20th of May so it's a Work In
         Progress! You can view the code{" "}

@@ -17,7 +17,7 @@ function App() {
   const state = useThree();
   const scene1Guide = useRef();
   //activeScene will tell camera where to go when a nav Link is clicked
-  const [activeScene, setActiveScene] = useState("aboutMe");
+  const [activeScene, setActiveScene] = useState("home");
   //scenes state holds the co-ords for each scene (home and aboutMe pages)
   //modify these to move the camera
   const [scenes, setScenes] = useState([
@@ -28,7 +28,7 @@ function App() {
     },
     {
       name: "aboutMe",
-      lookFrom: new THREE.Vector3(120, 130, -100),
+      lookFrom: new THREE.Vector3(150, 120, -80),
       lookAt: new THREE.Vector3(0, 0, 0),
     },
     {
