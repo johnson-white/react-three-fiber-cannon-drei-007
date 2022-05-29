@@ -17,24 +17,29 @@ function App() {
   const state = useThree();
   const scene1Guide = useRef();
   //activeScene will tell camera where to go when a nav Link is clicked
-  const [activeScene, setActiveScene] = useState("home");
+  const [activeScene, setActiveScene] = useState("aboutMe");
   //scenes state holds the co-ords for each scene (home and aboutMe pages)
   //modify these to move the camera
   const [scenes, setScenes] = useState([
     {
       name: "home",
-      lookFrom: new THREE.Vector3(0, -50, -30), //camera will look from this position
+      lookFrom: new THREE.Vector3(-100, 100, 100), //camera will look from this position
       lookAt: new THREE.Vector3(0, 0, 0), //to this position
     },
     {
       name: "aboutMe",
-      lookFrom: new THREE.Vector3(120, 130, 14),
+      lookFrom: new THREE.Vector3(120, 130, -100),
       lookAt: new THREE.Vector3(0, 0, 0),
     },
     {
       name: "scene3",
       lookFrom: new THREE.Vector3(0, 0, 0),
-      lookAt: new THREE.Vector3(0, 0, 0),
+      lookAt: new THREE.Vector3(1, 0, 0),
+    },
+    {
+      name: "scene4",
+      lookFrom: new THREE.Vector3(0, 0, 0),
+      lookAt: new THREE.Vector3(0, 0, 1),
     },
   ]);
 
@@ -109,9 +114,6 @@ function App() {
 
   return (
     <>
-      <MainScene1></MainScene1>
-      <MainScene2></MainScene2>
-
       <Html className={style.container}>
         <BrowserRouter>
           <Routes>
@@ -127,6 +129,8 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Html>
+
+      {/* <OrbitControls></OrbitControls> */}
 
       {/* scene1Guide for camera positioning */}
       {/* <mesh ref={scene1Guide} position={[0, 0, 0]}>
