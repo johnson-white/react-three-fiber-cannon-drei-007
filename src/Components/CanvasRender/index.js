@@ -13,7 +13,7 @@ function CanvasRender() {
       <Canvas camera={{ position: [0, 2, -15], near: 0.001 }}>
         <Suspense>
           {/* <MainScene1></MainScene1> */}
-          <MainScene2></MainScene2>
+          {/* <MainScene2></MainScene2> */}
           <MainScene3 scale={1} position={[0, 0, 0]}></MainScene3>
 
           <MainScene4></MainScene4>

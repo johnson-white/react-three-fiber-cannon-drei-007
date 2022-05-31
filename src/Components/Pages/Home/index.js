@@ -6,12 +6,9 @@ function Home({ updateActiveScene }) {
     <>
       <h1>HOME</h1>
       <NavBar updateActiveScene={updateActiveScene}></NavBar>
-      <p style={{ alignSelf: "start" }}>(Click the nav buttons!)</p>
-      <h2>Hi, I'm Johnson!</h2>
-      <p>Welcome to my brand new 3D website!</p>
+      <p>Hi, I'm Johnson!</p>
       <p>
-        I started putting this together on the 20th of May so it's a Work In
-        Progress! You can view the code{" "}
+        Welcome to my brand new 3D website! You can view the code{" "}
         <a
           href="https://github.com/bM7tcHF88GBxDni/react-three-fiber-cannon-drei-007"
           target="_blank"
@@ -27,7 +24,6 @@ function Home({ updateActiveScene }) {
         </a>
         .
       </p>
-
       <p>
         You're probably a recruiter so do checkout my{" "}
         <a href="https://github.com/bM7tcHF88GBxDni" target="_blank">
@@ -39,8 +35,6 @@ function Home({ updateActiveScene }) {
         </a>
         !
       </p>
-      <p>These are styled by flexbox css!</p>
-      <p>Some additional text!</p>
     </>
   );
 }
