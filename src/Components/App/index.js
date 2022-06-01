@@ -3,19 +3,14 @@ import * as THREE from "three";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import { useFrame, useThree } from "@react-three/fiber";
-import { Html, OrbitControls } from "@react-three/drei";
-import { Physics } from "@react-three/cannon";
+import { Html } from "@react-three/drei";
 
 import style from "./App.module.css";
-import MainScene1 from "../Scenes/MainScene1";
-import MainScene2 from "../Scenes/MainScene2";
-import PhyPlane from "../PhyPlane";
 import Home from "../Pages/Home";
 import AboutMe from "../Pages/AboutMe";
 
 function App() {
   const state = useThree();
-  const scene1Guide = useRef();
   //activeScene will tell camera where to go when a nav Link is clicked
   const [activeScene, setActiveScene] = useState("home");
   //scenes state holds the co-ords for each scene (home and aboutMe pages)
@@ -23,7 +18,7 @@ function App() {
   const [scenes, setScenes] = useState([
     {
       name: "home",
-      lookFrom: new THREE.Vector3(-100, 100, 100), //camera will look from this position
+      lookFrom: new THREE.Vector3(0, 0, -100), //camera will look from this position
       lookAt: new THREE.Vector3(0, 0, 0), //to this position
     },
     {
@@ -129,14 +124,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Html>
-
-      {/* <OrbitControls></OrbitControls> */}
-
-      {/* scene1Guide for camera positioning */}
-      {/* <mesh ref={scene1Guide} position={[0, 0, 0]}>
-        <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-        <meshPhysicalMaterial attach="material" color="red" />
-      </mesh> */}
     </>
   );
 }
