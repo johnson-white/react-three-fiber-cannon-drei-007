@@ -18,7 +18,7 @@ function App() {
   const [scenes, setScenes] = useState([
     {
       name: "home",
-      lookFrom: new THREE.Vector3(0, 0, -100), //camera will look from this position
+      lookFrom: new THREE.Vector3(0, 50, -90), //camera will look from this position
       lookAt: new THREE.Vector3(0, 0, 0), //to this position
     },
     {

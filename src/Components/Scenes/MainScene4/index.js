@@ -6,7 +6,7 @@ export default function MainScene4() {
   const torus = useRef();
 
   useFrame((state, delta) => {
-    torus.current.rotation.z += delta / 50;
+    torus.current.rotation.z += delta / 20;
   });
 
   return (
@@ -17,23 +17,22 @@ export default function MainScene4() {
       scale={[200, 200, 200]}
       ref={torus}
     >
-      <torusKnotGeometry args={[0.4, 0.05, 400, 64, 3, 7]} />
+      <torusKnotGeometry args={[0.4, 0.1, 600, 32, 3, 9]} />
       <LayerMaterial lighting="basic">
-        <Color color={"#ff4eb8"} alpha={1} mode="normal" />
+        <Color color={"ghostwhite"} alpha={1} mode="normal" />
         <Depth
           far={100}
-          near={1}
+          near={10}
           origin={[0, 0, 0]}
-          colorA="#ff00e3"
-          colorB="#00ffff"
+          colorA="coral"
           alpha={0.5}
           mode={"normal"}
           mapping="camera"
         />
         <Depth
-          near={25}
-          far={75}
-          colorA={"#ffe100"}
+          near={80}
+          far={110}
+          colorA={"gold"}
           alpha={0.65}
           mode={"lighten"}
           origin={[0, 0, 0]}
