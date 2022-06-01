@@ -3,9 +3,9 @@ import NavBar from "../DOMComponents/NavBar";
 
 function Home({ updateActiveScene }) {
   return (
-    <>
-      <h1>HOME</h1>
+    <div className={style.home}>
       <NavBar updateActiveScene={updateActiveScene}></NavBar>
+      <h1>HOME</h1>
       <p>Hi, I'm Johnson!</p>
       <p>Welcome to my brand new 3D website!</p>{" "}
       <p>
@@ -42,7 +42,7 @@ function Home({ updateActiveScene }) {
         .
       </p>
       <div>Site under development.</div>
-    </>
+    </div>
   );
 }
 

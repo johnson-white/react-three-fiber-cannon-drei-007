@@ -23,7 +23,7 @@ function App() {
     },
     {
       name: "aboutMe",
-      lookFrom: new THREE.Vector3(150, 120, -80),
+      lookFrom: new THREE.Vector3(150, 0, 0),
       lookAt: new THREE.Vector3(0, 0, 0),
     },
     {
@@ -109,7 +109,7 @@ function App() {
 
   return (
     <>
-      <Html className={style.container}>
+      <Html className={style.appContainer}>
         <BrowserRouter>
           <Routes>
             {/* this Home is rendered by default: */}

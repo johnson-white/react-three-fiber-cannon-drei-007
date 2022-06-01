@@ -6,7 +6,7 @@ import CanvasRender from "./Components/CanvasRender";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <div className={css.appContainer}>
+  <div className={css.indexContainer}>
     <CanvasRender />
   </div>
 );

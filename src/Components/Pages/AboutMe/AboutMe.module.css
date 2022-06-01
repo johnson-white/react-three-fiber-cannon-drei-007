@@ -1,5 +1,8 @@
-div span {
-  background-color: cyan;
+.aboutMe {
+  width: 90vw;
+}
+
+.aboutMe p span {
   color: black;
   border: 0.1em black solid;
   border-radius: 1em;

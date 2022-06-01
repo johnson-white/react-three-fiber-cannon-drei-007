@@ -3,9 +3,9 @@ import NavBar from "../DOMComponents/NavBar";
 
 function AboutMe({ updateActiveScene }) {
   return (
-    <>
-      <h1>ABOUT ME</h1>
+    <div className={style.aboutMe}>
       <NavBar updateActiveScene={updateActiveScene}></NavBar>
+      <h1>ABOUT ME</h1>
       <p>I hope you liked the camera animations!</p>
       <p>
         <span>2022 - 2021</span> School Of Code, Intensive 16 Week Bootcamp
@@ -20,7 +20,7 @@ function AboutMe({ updateActiveScene }) {
         <span>2017</span> Java{" "}
       </p>
       <div>Site under development.</div>
-    </>
+    </div>
   );
 }
 

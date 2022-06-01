@@ -20,15 +20,6 @@ export default function MainScene4() {
       <torusKnotGeometry args={[0.4, 0.05, 400, 64, 3, 7]} />
       <LayerMaterial lighting="basic">
         <Color color={"#ff4eb8"} alpha={1} mode="normal" />
-        <Noise
-          colorA={"white"}
-          colorB={"black"}
-          colorC={"green"}
-          mode="multiply"
-          mapping="world"
-          type="curl"
-          alpha={1}
-        />
         <Depth
           far={100}
           near={1}
@@ -49,7 +40,7 @@ export default function MainScene4() {
           mapping={"camera"}
         />
         <Fresnel
-          mode={"softlight"}
+          mode="softlight"
           color="ff00e3"
           intensity={1}
           power={2}
