@@ -13,6 +13,14 @@ p {
   padding: 0.2em 1em;
 }
 
+p span {
+  background-color: cyan;
+  color: black;
+  border: 0.1em black solid;
+  border-radius: 1em;
+  padding: 0.1em 0.8em;
+}
+
 a:link {
   color: cyan;
 }

@@ -11,8 +11,8 @@ function NavBar({ updateActiveScene }) {
         <Link to="/aboutMe" onClick={() => updateActiveScene("aboutMe")}>
           About
         </Link>
-        <div>Placeholder</div>
-        <div>Placeholder</div>
+        <div>WIP</div>
+        <div>WIP</div>
       </nav>
     </>
   );
