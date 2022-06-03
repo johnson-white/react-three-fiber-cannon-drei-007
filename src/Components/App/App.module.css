@@ -1,8 +1,5 @@
 .appContainer {
   margin: 0;
-  /* DOM elements render at center of screen, moving them to top left */
-  top: -50vh;
-  left: -50vw;
 
   /* Defining size of container */
   width: 100vw;

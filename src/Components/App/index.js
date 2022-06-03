@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import { useFrame, useThree } from "@react-three/fiber";
-import { Html } from "@react-three/drei";
+import { Html, OrbitControls } from "@react-three/drei";
 
 import style from "./App.module.css";
 import Home from "../Pages/Home";
@@ -62,18 +62,18 @@ function App() {
   });
 
   //constantly animates camera to co-ords above
-  useFrame((st, dt) => {
-    //camera moves to new position
-    st.camera.position.lerp(
-      view.targetPosition,
-      THREE.MathUtils.damp(0, 1, 2, dt)
-    );
-    //camera rotates to new position
-    st.camera.quaternion.slerp(
-      view.targetQuaternion,
-      THREE.MathUtils.damp(0, 1, 2, dt) // divided further for more granular slerp
-    );
-  });
+  // useFrame((st, dt) => {
+  //   //camera moves to new position
+  //   st.camera.position.lerp(
+  //     view.targetPosition,
+  //     THREE.MathUtils.damp(0, 1, 2, dt)
+  //   );
+  //   //camera rotates to new position
+  //   st.camera.quaternion.slerp(
+  //     view.targetQuaternion,
+  //     THREE.MathUtils.damp(0, 1, 2, dt) // divided further for more granular slerp
+  //   );
+  // });
 
   //used by nav Links to setActiveScene
   function updateActiveScene(string) {
@@ -108,24 +108,30 @@ function App() {
   }
 
   return (
-    //control Html position in 3D world using a mesh like this
-    <mesh position={[0, 0, 0]}>
-      <Html className={style.appContainer}>
-        <BrowserRouter>
-          <Routes>
-            {/* this Home is rendered by default: */}
-            <Route
-              path="/"
-              element={<Home updateActiveScene={updateActiveScene} />}
-            />
-            <Route
-              path="aboutMe"
-              element={<AboutMe updateActiveScene={updateActiveScene} />}
-            />
-          </Routes>
-        </BrowserRouter>
-      </Html>
-    </mesh>
+    <>
+      <OrbitControls></OrbitControls>
+
+      <mesh position={[0, 0, 0]}>
+        <boxBufferGeometry args={[10, 10, 5]} />
+        <meshNormalMaterial />
+        <Html
+          //center
+          className={style.appContainer}
+          transform //enable 3D transforms
+          position={[0, 0.05, -0.09]} //apply transforms
+        >
+          <Home updateActiveScene={updateActiveScene} />
+        </Html>
+      </mesh>
+
+      <mesh position={[-300, 0, 0]}>
+        <coneGeometry args={[20, 50, 5]}></coneGeometry>
+        <meshNormalMaterial />
+        <Html center className={style.appContainer}>
+          <AboutMe updateActiveScene={updateActiveScene} />
+        </Html>
+      </mesh>
+    </>
   );
 }
 

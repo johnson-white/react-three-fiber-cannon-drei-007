@@ -6,10 +6,10 @@ Finalise low and medium fidelity 3D wireframes.
 
 Pages currently exist at the origin point and we use React Router to navigate between them. Test decoupling the two pages into separate locations:
 
-- On App Level, render two meshes with a Html wrapper and Page component in each
-- Position meshes away from each other (symmetrical of origin with plenty of space in between ideal for testing), update scene co-ordinates in App to make these observable
-- Function that updates scene should still be passed into NavBar
-  - Refactor NavBar to no longer use React Router but still update scene onClick
+- On App Level, render two meshes with a Html wrapper and Page component in each ✔️
+- Position meshes away from each other (symmetrical of origin with plenty of space in between ideal for testing) ✔️, update scene co-ordinates in App to make these observable
+- Function that updates scene should still be passed into NavBar ✔️
+  - Refactor NavBar to no longer use React Router but still update scene onClick ✔️
 
 Highest level component that:
 
