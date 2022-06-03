@@ -108,7 +108,8 @@ function App() {
   }
 
   return (
-    <>
+    //control Html position in 3D world using a mesh like this
+    <mesh position={[0, 0, 0]}>
       <Html className={style.appContainer}>
         <BrowserRouter>
           <Routes>
@@ -124,7 +125,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Html>
-    </>
+    </mesh>
   );
 }
 
