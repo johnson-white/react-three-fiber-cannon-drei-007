@@ -6,12 +6,13 @@ import MainScene1 from "../Scenes/MainScene1";
 import MainScene2 from "../Scenes/MainScene2";
 import MainScene3 from "../Scenes/MainScene3";
 import MainScene4 from "../Scenes/MainScene4";
+import Loading from "../Pages/DOMComponents/Loading";
 
 function CanvasRender() {
   return (
     <>
       <Canvas camera={{ position: [0, 2, -15], near: 0.001 }}>
-        <Suspense>
+        <Suspense fallback={<Loading />}>
           {/* <MainScene2></MainScene2> */}
 
           <MainScene4></MainScene4>
