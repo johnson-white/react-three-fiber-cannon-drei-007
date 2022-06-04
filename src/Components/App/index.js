@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { BrowserRouter } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Html, OrbitControls } from "@react-three/drei";
 
@@ -18,13 +16,13 @@ function App() {
   const [scenes, setScenes] = useState([
     {
       name: "home",
-      lookFrom: new THREE.Vector3(0, 50, -90), //camera will look from this position
+      lookFrom: new THREE.Vector3(0, 50, 88), //camera will look from this position
       lookAt: new THREE.Vector3(0, 0, 0), //to this position
     },
     {
       name: "aboutMe",
-      lookFrom: new THREE.Vector3(150, 0, 0),
-      lookAt: new THREE.Vector3(0, 0, 0),
+      lookFrom: new THREE.Vector3(-250, 0, 0),
+      lookAt: new THREE.Vector3(-300, 0, 0),
     },
     {
       name: "scene3",
@@ -49,6 +47,7 @@ function App() {
               scene.lookFrom
             )}`
           );
+          console.log("CAM LOCATION", state.camera.position);
         }
       });
     }
@@ -61,19 +60,19 @@ function App() {
     targetQuaternion: new THREE.Quaternion(),
   });
 
-  //constantly animates camera to co-ords above
-  // useFrame((st, dt) => {
-  //   //camera moves to new position
-  //   st.camera.position.lerp(
-  //     view.targetPosition,
-  //     THREE.MathUtils.damp(0, 1, 2, dt)
-  //   );
-  //   //camera rotates to new position
-  //   st.camera.quaternion.slerp(
-  //     view.targetQuaternion,
-  //     THREE.MathUtils.damp(0, 1, 2, dt) // divided further for more granular slerp
-  //   );
-  // });
+  // constantly animates camera to co-ords above
+  useFrame((st, dt) => {
+    //camera moves to new position
+    st.camera.position.lerp(
+      view.targetPosition,
+      THREE.MathUtils.damp(0, 1, 2, dt)
+    );
+    //camera rotates to new position
+    st.camera.quaternion.slerp(
+      view.targetQuaternion,
+      THREE.MathUtils.damp(0, 1, 2, dt) // divided further for more granular slerp
+    );
+  });
 
   //used by nav Links to setActiveScene
   function updateActiveScene(string) {
@@ -109,23 +108,27 @@ function App() {
 
   return (
     <>
-      <OrbitControls></OrbitControls>
-
-      <mesh position={[0, 0, 0]}>
-        <boxBufferGeometry args={[10, 10, 5]} />
+      {/* <OrbitControls></OrbitControls> */}
+      <mesh
+        position={[0, 43, 77]}
+        lookAt={state.camera.position}
+        //rotation-x={-Math.PI / 6}
+      >
+        <boxBufferGeometry args={[20, 10, 1]} />
         <meshNormalMaterial />
         <Html
-          //center
+          center
           className={style.appContainer}
-          transform //enable 3D transforms
-          position={[0, 0.05, -0.09]} //apply transforms
+          //transform //enable 3D transforms
+          //position={[0, 0.05, -0.09]} //apply transforms
+          sprite
         >
           <Home updateActiveScene={updateActiveScene} />
         </Html>
       </mesh>
 
       <mesh position={[-300, 0, 0]}>
-        <coneGeometry args={[20, 50, 5]}></coneGeometry>
+        <boxBufferGeometry args={[20, 10, 1]} />
         <meshNormalMaterial />
         <Html center className={style.appContainer}>
           <AboutMe updateActiveScene={updateActiveScene} />

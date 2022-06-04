@@ -13,7 +13,7 @@ export default function MainScene4() {
     <mesh
       castShadow
       receiveShadow
-      rotation-y={Math.PI / 2}
+      rotation-y={-Math.PI / 2}
       scale={[200, 200, 200]}
       ref={torus}
     >
