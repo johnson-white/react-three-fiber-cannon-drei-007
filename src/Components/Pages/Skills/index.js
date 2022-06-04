@@ -1,11 +1,11 @@
-import style from "./AboutMe.module.css";
+import style from "./Skills.module.css";
 import NavBar from "../DOMComponents/NavBar";
 
-function AboutMe({ updateActiveScene }) {
+function Skills({ updateActiveScene }) {
   return (
-    <div className={style.aboutMe}>
+    <div className={style.skills}>
       <NavBar updateActiveScene={updateActiveScene}></NavBar>
-      <h1>ABOUT ME</h1>
+      <h1>SKILLS</h1>
       <p>I hope you liked the camera animations!</p>
       <p>
         <span>2022 - 2021</span> School Of Code, Intensive 16 Week Bootcamp
@@ -24,4 +24,4 @@ function AboutMe({ updateActiveScene }) {
   );
 }
 
-export default AboutMe;
+export default Skills;

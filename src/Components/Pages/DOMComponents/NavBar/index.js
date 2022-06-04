@@ -5,8 +5,8 @@ function NavBar({ updateActiveScene }) {
   return (
     <>
       <nav className={style.navbar}>
-        <div onClick={() => updateActiveScene("home")}>Home</div>
-        <div onClick={() => updateActiveScene("aboutMe")}>About</div>
+        <div onClick={() => updateActiveScene("home")}>HOME</div>
+        <div onClick={() => updateActiveScene("aboutMe")}>SKILLS</div>
         <div>WIP</div>
         <div>WIP</div>
       </nav>

@@ -5,7 +5,7 @@ import { Html, OrbitControls } from "@react-three/drei";
 
 import style from "./App.module.css";
 import Home from "../Pages/Home";
-import AboutMe from "../Pages/AboutMe";
+import Skills from "../Pages/Skills";
 
 function App() {
   const state = useThree();
@@ -20,7 +20,7 @@ function App() {
       lookAt: new THREE.Vector3(0, 0, 0), //to this position
     },
     {
-      name: "aboutMe",
+      name: "skills",
       lookFrom: new THREE.Vector3(-250, 0, 0),
       lookAt: new THREE.Vector3(-300, 0, 0),
     },
@@ -131,7 +131,7 @@ function App() {
         <boxBufferGeometry args={[1, 10, 20]} />
         <meshNormalMaterial />
         <Html center className={style.appContainer}>
-          <AboutMe updateActiveScene={updateActiveScene} />
+          <Skills updateActiveScene={updateActiveScene} />
         </Html>
       </mesh>
     </>
