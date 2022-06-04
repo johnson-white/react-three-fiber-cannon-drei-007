@@ -4,15 +4,28 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 
-  margin: 1em;
+  transform: translateY(-60%);
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: translateY(-40%);
+  }
 }
 
 .navbar h1 {
   color: black;
-  font-size: 500;
+  font-size: 1.55em;
 
   border-radius: 1em;
   padding: 0.1em 1em;
-  margin: 0.2em 0.2em;
+  margin: 0.2em 0.2em 0.2em 0.2em;
 }
