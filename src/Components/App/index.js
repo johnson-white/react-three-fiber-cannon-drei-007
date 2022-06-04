@@ -21,8 +21,8 @@ function App() {
     },
     {
       name: "skills",
-      lookFrom: new THREE.Vector3(-250, 0, 0),
-      lookAt: new THREE.Vector3(-300, 0, 0),
+      lookFrom: new THREE.Vector3(-260, 43, 77),
+      lookAt: new THREE.Vector3(-300, 43, 77),
     },
     {
       name: "scene3",
@@ -113,26 +113,33 @@ function App() {
         position={[0, 43, 77]}
         rotation-x={-Math.PI / 6} //rotate mesh and Html
       >
-        <boxBufferGeometry args={[20, 10, 1]} />
+        {/* [20, 10, 1] */}
+        <boxBufferGeometry args={[0, 0, 0]} />
         <meshNormalMaterial />
         <Html
           center
           className={style.appContainer}
           transform //enable 3D transforms
           //position={[0, 0.05, -0.09]} //apply transforms
-          distanceFactor={8.5}
+          distanceFactor={9}
           // sprite
         >
           <Home updateActiveScene={updateActiveScene} />
         </Html>
       </mesh>
 
-      <mesh position={[-300, 0, 0]}>
-        <boxBufferGeometry args={[1, 10, 20]} />
-        <meshNormalMaterial />
+      <mesh position={[-300, 43, 77]}>
+        {/* [1, 10, 20] */}
+        <sphereGeometry args={[90, 1, 3]} />
+        <meshNormalMaterial wireframe opacity={1} transparent />
         <Html center className={style.appContainer}>
           <Skills updateActiveScene={updateActiveScene} />
         </Html>
+      </mesh>
+      <mesh position={[-320, 45, 78]}>
+        {/* [1, 10, 20] */}
+        <torusGeometry args={[78, 12, 48, 2, 9]} />
+        <meshNormalMaterial wireframe opacity={1} transparent />
       </mesh>
     </>
   );
