@@ -1,37 +1,18 @@
 .navbar {
-  width: 80vw;
   height: auto;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  margin: 1em;
 }
 
-.navbar * {
-  text-decoration: none;
-
-  background-color: rgb(255, 255, 255);
-  backdrop-filter: blur(3em);
-  box-shadow: 0px 0px 1em 0px rgba(0, 0, 0, 0.6);
-
+.navbar h1 {
   color: black;
   font-size: 500;
 
   border-radius: 1em;
   padding: 0.1em 1em;
   margin: 0.2em 0.2em;
-}
-
-.navbar a {
-  color: black;
-  border: 0.1em black solid;
-  border-radius: 1em;
-  padding: 0.1em 0.8em;
-
-  text-decoration: none;
-}
-
-/* mouse over link */
-.navbar a:hover {
-  background-color: white;
 }

@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
 import style from "./NavBar.module.css";
 
 function NavBar({ updateActiveScene }) {
   return (
     <>
       <nav className={style.navbar}>
-        <div onClick={() => updateActiveScene("home")}>HOME</div>
-        <div onClick={() => updateActiveScene("aboutMe")}>SKILLS</div>
-        <div>WIP</div>
-        <div>WIP</div>
+        <h1 onClick={() => updateActiveScene("home")}>H_ME_</h1>
+        <h1 onClick={() => updateActiveScene("skills")}>SKILLS_</h1>
+        <h1>-PROJECTS</h1>
+        <h1>ABOUT_ME</h1>
+        <h1>C_NT_CT</h1>
       </nav>
     </>
   );
