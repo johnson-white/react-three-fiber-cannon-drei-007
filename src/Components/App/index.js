@@ -111,24 +111,24 @@ function App() {
       {/* <OrbitControls></OrbitControls> */}
       <mesh
         position={[0, 43, 77]}
-        lookAt={state.camera.position}
-        //rotation-x={-Math.PI / 6}
+        rotation-x={-Math.PI / 6} //rotate mesh and Html
       >
         <boxBufferGeometry args={[20, 10, 1]} />
         <meshNormalMaterial />
         <Html
           center
           className={style.appContainer}
-          //transform //enable 3D transforms
+          transform //enable 3D transforms
           //position={[0, 0.05, -0.09]} //apply transforms
-          sprite
+          distanceFactor={8.5}
+          // sprite
         >
           <Home updateActiveScene={updateActiveScene} />
         </Html>
       </mesh>
 
       <mesh position={[-300, 0, 0]}>
-        <boxBufferGeometry args={[20, 10, 1]} />
+        <boxBufferGeometry args={[1, 10, 20]} />
         <meshNormalMaterial />
         <Html center className={style.appContainer}>
           <AboutMe updateActiveScene={updateActiveScene} />
