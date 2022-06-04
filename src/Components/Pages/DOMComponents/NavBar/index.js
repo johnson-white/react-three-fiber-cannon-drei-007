@@ -44,11 +44,11 @@ export default function NavBar({ updateActiveScene }) {
         ></NavText>
         <NavText
           scene={"skills"}
-          text={"SKILLS_"}
+          text={`SKI/_/_S_`}
           updateActiveScene={updateActiveScene}
         ></NavText>
-        <h1>-PROJECTS</h1>
-        <h1>ABOUT_ME</h1>
+        <h1>++PROJECTS</h1>
+        <h1>ABOUT_M:</h1>
         <h1>C_NT_CT</h1>
       </nav>
     </>
