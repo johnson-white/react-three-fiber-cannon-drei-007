@@ -25,14 +25,19 @@ function App() {
       lookAt: new THREE.Vector3(-300, 43, 77),
     },
     {
-      name: "scene3",
+      name: "projects",
       lookFrom: new THREE.Vector3(0, 0, 0),
       lookAt: new THREE.Vector3(1, 0, 0),
     },
     {
-      name: "scene4",
+      name: "aboutMe",
       lookFrom: new THREE.Vector3(0, 0, 0),
       lookAt: new THREE.Vector3(0, 0, 1),
+    },
+    {
+      name: "contact",
+      lookFrom: new THREE.Vector3(0, 0, 0),
+      lookAt: new THREE.Vector3(0, 1, 0),
     },
   ]);
 
@@ -110,7 +115,10 @@ function App() {
     <>
       {/* <OrbitControls></OrbitControls> */}
       <mesh
-        position={[0, 43, 77]}
+        position={scenes[0].lookFrom
+          .clone()
+          .sub(new THREE.Vector3(0, 7.4, 13))
+          .toArray()} //use scene value with manual adjustment
         rotation-x={-Math.PI / 6} //rotate mesh and Html
       >
         {/* [20, 10, 1] */}
@@ -121,7 +129,7 @@ function App() {
           className={style.appContainer}
           transform //enable 3D transforms
           //position={[0, 0.05, -0.09]} //apply transforms
-          distanceFactor={9}
+          distanceFactor={10}
           // sprite
         >
           <Home updateActiveScene={updateActiveScene} />
