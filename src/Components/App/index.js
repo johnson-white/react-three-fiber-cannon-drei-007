@@ -36,8 +36,8 @@ function App() {
     },
     {
       name: "contact",
-      lookFrom: new THREE.Vector3(0, 0, 0),
-      lookAt: new THREE.Vector3(0, 1, 0),
+      lookFrom: new THREE.Vector3(0, 0, 100),
+      lookAt: new THREE.Vector3(0, 0, 0),
     },
   ]);
 
@@ -70,12 +70,12 @@ function App() {
     //camera moves to new position
     st.camera.position.lerp(
       view.targetPosition,
-      THREE.MathUtils.damp(0, 1, 2, dt)
+      THREE.MathUtils.damp(0, 1, 2, dt * 10)
     );
     //camera rotates to new position
     st.camera.quaternion.slerp(
       view.targetQuaternion,
-      THREE.MathUtils.damp(0, 1, 2, dt) // divided further for more granular slerp
+      THREE.MathUtils.damp(0, 1, 2, dt * 10) // divided further for more granular slerp
     );
   });
 

@@ -49,7 +49,11 @@ export default function NavBar({ updateActiveScene }) {
         ></NavText>
         <h1>++PROJECTS</h1>
         <h1>ABOUT_M:</h1>
-        <h1>C_NT_CT</h1>
+        <NavText
+          scene={"contact"}
+          text={`C_NT_CT`}
+          updateActiveScene={updateActiveScene}
+        ></NavText>
       </nav>
     </>
   );
