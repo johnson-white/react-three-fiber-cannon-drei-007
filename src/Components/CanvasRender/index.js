@@ -11,7 +11,7 @@ import Loading from "../Pages/DOMComponents/Loading";
 function CanvasRender() {
   return (
     <>
-      <Canvas camera={{ position: [0, 2, -15], near: 0.001 }}>
+      <Canvas camera={{ position: [-1, 0, 0], near: 0.001 }}>
         <Suspense fallback={<Loading />}>
           {/* <MainScene2></MainScene2> */}
 
