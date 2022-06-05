@@ -16,18 +16,18 @@ function App() {
   const [scenes, setScenes] = useState([
     {
       name: "home",
-      lookFrom: new THREE.Vector3(0, 50, 88), //camera will look from this position
+      lookFrom: new THREE.Vector3(0, 0, 100), //camera will look from this position
       lookAt: new THREE.Vector3(0, 0, 0), //to this position
     },
     {
       name: "skills",
-      lookFrom: new THREE.Vector3(-260, 43, 77),
-      lookAt: new THREE.Vector3(-300, 43, 77),
+      lookFrom: new THREE.Vector3(-2260, 0, 100),
+      lookAt: new THREE.Vector3(-2300, 0, 100),
     },
     {
       name: "projects",
-      lookFrom: new THREE.Vector3(0, 0, 0),
-      lookAt: new THREE.Vector3(1, 0, 0),
+      lookFrom: new THREE.Vector3(150, 0, 0),
+      lookAt: new THREE.Vector3(0, 0, 0),
     },
     {
       name: "aboutMe",
@@ -47,12 +47,12 @@ function App() {
       scenes.forEach((scene) => {
         if (scene.name.toLowerCase() === activeScene.toLowerCase()) {
           updateCamera(scene.lookAt, scene.lookFrom);
-          console.log(
-            `${scene.name} ${JSON.stringify(scene.lookAt)} ${JSON.stringify(
-              scene.lookFrom
-            )}`
-          );
-          console.log("CAM LOCATION", state.camera.position);
+          // console.log(
+          //   `${scene.name} ${JSON.stringify(scene.lookAt)} ${JSON.stringify(
+          //     scene.lookFrom
+          //   )}`
+          // );
+          // console.log("CAM LOCATION", state.camera.position);
         }
       });
     }
@@ -117,9 +117,9 @@ function App() {
       <mesh
         position={scenes[0].lookFrom
           .clone()
-          .sub(new THREE.Vector3(0, 7.4, 13))
+          .sub(new THREE.Vector3(0, 0, 15))
           .toArray()} //use scene value with manual adjustment
-        rotation-x={-Math.PI / 6} //rotate mesh and Html
+        //rotation-x={-Math.PI / 6} //rotate mesh and Html
       >
         {/* [20, 10, 1] */}
         <boxBufferGeometry args={[0, 0, 0]} />
@@ -136,7 +136,7 @@ function App() {
         </Html>
       </mesh>
 
-      <mesh position={[-300, 43, 77]}>
+      <mesh position={[-2300, 0, 100]}>
         {/* [1, 10, 20] */}
         <sphereGeometry args={[90, 1, 3]} />
         <meshNormalMaterial wireframe opacity={1} transparent />
@@ -144,7 +144,7 @@ function App() {
           <Skills updateActiveScene={updateActiveScene} />
         </Html>
       </mesh>
-      <mesh position={[-320, 45, 78]}>
+      <mesh position={[-2320, 0.02, 100]}>
         {/* [1, 10, 20] */}
         <torusGeometry args={[78, 12, 48, 2, 9]} />
         <meshNormalMaterial wireframe opacity={1} transparent />
