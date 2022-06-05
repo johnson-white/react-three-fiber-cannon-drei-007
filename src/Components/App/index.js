@@ -6,6 +6,7 @@ import { Html, OrbitControls } from "@react-three/drei";
 import style from "./App.module.css";
 import Home from "../Pages/Home";
 import Skills from "../Pages/Skills";
+import NavBar from "../Pages/DOMComponents/NavBar";
 
 function App() {
   const state = useThree();
@@ -36,8 +37,8 @@ function App() {
     },
     {
       name: "contact",
-      lookFrom: new THREE.Vector3(0, 0, 100),
-      lookAt: new THREE.Vector3(0, 0, 0),
+      lookFrom: new THREE.Vector3(2260, 0, 0),
+      lookAt: new THREE.Vector3(2300, 0, 0),
     },
   ]);
 
@@ -61,7 +62,7 @@ function App() {
 
   //camera animates to these co-ordinates, these are updated by updateCamera()
   const [view, setView] = useState({
-    targetPosition: new THREE.Vector3(0, 0, 10),
+    targetPosition: new THREE.Vector3(500, 500, 500),
     targetQuaternion: new THREE.Quaternion(),
   });
 
@@ -114,6 +115,49 @@ function App() {
   return (
     <>
       {/* <OrbitControls></OrbitControls> */}
+
+      <mesh
+        position={scenes[4].lookFrom
+          .clone()
+          .sub(new THREE.Vector3(-15, 0, 0))
+          .toArray()} //use scene value with manual adjustment
+        rotation-y={-Math.PI / 2}
+      >
+        <ringGeometry args={[2, 10, 4, 1, 1.57, 6.2832]} />
+        <meshLambertMaterial color="aquamarine" opacity={0.95} transparent />
+        <Html
+          center
+          className={style.appContainer}
+          transform
+          position={[0, 1.5, 0]}
+          distanceFactor={10}
+          sprite
+        >
+          <div className="">
+            <NavBar updateActiveScene={updateActiveScene}></NavBar>
+            <h1>CONTACT</h1>
+
+            <p>
+              LOOKING FOR JOB:
+              <a
+                href="https://www.linkedin.com/in/johnsonsingh/"
+                target="_blank"
+              >
+                LinkedIn
+              </a>
+            </p>
+            <p>
+              PROJECTS:
+              <a href="https://github.com/bM7tcHF88GBxDni" target="_blank">
+                GitHub
+              </a>
+            </p>
+
+            <div>Site under development.</div>
+          </div>
+        </Html>
+      </mesh>
+
       <mesh
         position={scenes[0].lookFrom
           .clone()
