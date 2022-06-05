@@ -9,11 +9,11 @@ function Home({ updateActiveScene }) {
       <p>Hi, I'm Johnson!</p>
       <p>Welcome to my brand new 3D website!</p>{" "}
       <p>
-        I'm looking for <span>Full Stack</span> and <span>Front End</span>{" "}
-        roles!
+        I'm looking for my first job as a <span>Full Stack</span> or{" "}
+        <span>Front End</span> developer!
       </p>
       <p>
-        If you're a recruiter, do checkout my{" "}
+        View my projects on{" "}
         <a href="https://github.com/bM7tcHF88GBxDni" target="_blank">
           GitHub
         </a>{" "}
@@ -23,6 +23,7 @@ function Home({ updateActiveScene }) {
         </a>
         !
       </p>
+      <div>Site under development.</div>
       <p>
         {" "}
         You can view the code{" "}
@@ -41,7 +42,6 @@ function Home({ updateActiveScene }) {
         </a>
         .
       </p>
-      <div>Site under development.</div>
     </div>
   );
 }
