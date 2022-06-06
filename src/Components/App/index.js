@@ -68,18 +68,18 @@ function App() {
   });
 
   // constantly animates camera to co-ords above
-  // useFrame((st, dt) => {
-  //   //camera moves to new position
-  //   st.camera.position.lerp(
-  //     view.targetPosition,
-  //     THREE.MathUtils.damp(0, 1, 2, dt * 10)
-  //   );
-  //   //camera rotates to new position
-  //   st.camera.quaternion.slerp(
-  //     view.targetQuaternion,
-  //     THREE.MathUtils.damp(0, 1, 2, dt * 10) // divided further for more granular slerp
-  //   );
-  // });
+  useFrame((st, dt) => {
+    //camera moves to new position
+    st.camera.position.lerp(
+      view.targetPosition,
+      THREE.MathUtils.damp(0, 1, 2, dt * 10)
+    );
+    //camera rotates to new position
+    st.camera.quaternion.slerp(
+      view.targetQuaternion,
+      THREE.MathUtils.damp(0, 1, 2, dt * 10) // divided further for more granular slerp
+    );
+  });
 
   //used by nav Links to setActiveScene
   function updateActiveScene(string) {
@@ -115,49 +115,62 @@ function App() {
 
   return (
     <>
-      <OrbitControls></OrbitControls>
+      {/* <OrbitControls></OrbitControls> */}
 
-      <mesh
-        position={scenes[4].lookFrom
-          .clone()
-          .sub(new THREE.Vector3(-15, 0, 0))
-          .toArray()} //use scene value with manual adjustment
-        rotation-y={-Math.PI / 2}
-      >
-        <ContactScene></ContactScene>
-        <ringGeometry args={[2, 10, 4, 1, 1.57, 6.2832]} />
-        <meshLambertMaterial color="aquamarine" opacity={0.95} transparent />
-        <Html
-          center
-          className={style.appContainer}
-          transform
-          position={[0, 1.5, 0]}
-          distanceFactor={10}
+      <group>
+        <ContactScene
+          position={scenes[4].lookFrom
+            .clone()
+            .sub(new THREE.Vector3(-100, 30, 0))
+            .toArray()} //use scene value with manual adjustment
+          rotation-y={-Math.PI / 2}
+        ></ContactScene>
+        <mesh
+          position={scenes[4].lookFrom
+            .clone()
+            .sub(new THREE.Vector3(-15, 0, 0))
+            .toArray()} //use scene value with manual adjustment
+          rotation-y={-Math.PI / 2}
         >
-          <div className="">
-            <NavBar updateActiveScene={updateActiveScene}></NavBar>
-            <h1>CONTACT</h1>
-
-            <p>
-              LOOKING FOR JOB:
-              <a
-                href="https://www.linkedin.com/in/johnsonsingh/"
-                target="_blank"
-              >
-                LinkedIn
-              </a>
-            </p>
-            <p>
-              PROJECTS:
-              <a href="https://github.com/bM7tcHF88GBxDni" target="_blank">
-                GitHub
-              </a>
-            </p>
-
-            <div>Site under development.</div>
-          </div>
-        </Html>
-      </mesh>
+          <ringGeometry args={[12, 14, 4, 1, 1.57, 6.2832]} />
+          <meshLambertMaterial color="aquamarine" opacity={1} transparent />
+          <Html
+            center
+            className={style.appContainer}
+            transform
+            position={[0, 1.5, 0]}
+            distanceFactor={10}
+          >
+            <div className="">
+              <NavBar updateActiveScene={updateActiveScene}></NavBar>
+              <h1>CONTACT</h1>
+              <p>
+                Message me here with job or networking opportunities and I will
+                see them and respond really quickly!
+              </p>
+              <p>
+                <a
+                  href="https://www.linkedin.com/in/johnsonsingh/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </p>
+              <p>
+                I'm very active on GitHub (with ~700 commits this year) and you
+                can find Front End React, Back End Express and JWT, and Unity 3D
+                C# projects!
+              </p>
+              <p>
+                <a href="https://github.com/bM7tcHF88GBxDni" target="_blank">
+                  GitHub
+                </a>
+              </p>
+              <div>Site under development.</div>
+            </div>
+          </Html>
+        </mesh>
+      </group>
 
       <mesh
         position={scenes[0].lookFrom

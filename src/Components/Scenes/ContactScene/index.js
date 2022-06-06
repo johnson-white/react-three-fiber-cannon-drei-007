@@ -10,8 +10,8 @@ export default function ContactScene({ ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF("./models/Comms.glb");
   return (
-    <group ref={group} {...props} dispose={null} scale={100}>
-      <group rotation={[-Math.PI, 0.0269, Math.PI]}>
+    <group ref={group} {...props} dispose={null} scale={60}>
+      <group rotation={[-Math.PI, 0, Math.PI]}>
         <mesh
           geometry={nodes.Mesh_desk_computerScreen_1.geometry}
           material={materials.metal}
@@ -94,7 +94,7 @@ export default function ContactScene({ ...props }) {
         />
       </group>
       <pointLight
-        intensity={4}
+        intensity={1}
         decay={2}
         distance={10000}
         position={[-0.07, 0.37, 0.82]}
@@ -102,7 +102,7 @@ export default function ContactScene({ ...props }) {
         scale={0.001}
       />
       <pointLight
-        intensity={4}
+        intensity={1}
         decay={2}
         distance={10000}
         position={[0.06, 0.53, 0.2]}
@@ -110,7 +110,7 @@ export default function ContactScene({ ...props }) {
         scale={0.001}
       />
       <pointLight
-        intensity={4}
+        intensity={1}
         decay={2}
         distance={10000}
         position={[0.83, 0.65, 0.43]}
@@ -118,7 +118,7 @@ export default function ContactScene({ ...props }) {
         scale={0.001}
       />
       <pointLight
-        intensity={4}
+        intensity={1}
         decay={2}
         distance={20000}
         position={[1.09, 3.16, -8.12]}
@@ -126,7 +126,7 @@ export default function ContactScene({ ...props }) {
         scale={0.001}
       />
       <pointLight
-        intensity={4}
+        intensity={1}
         decay={2}
         distance={20000}
         position={[1.09, 2.64, -10.1]}
@@ -134,7 +134,7 @@ export default function ContactScene({ ...props }) {
         scale={0.001}
       />
       <pointLight
-        intensity={4}
+        intensity={1}
         decay={2}
         distance={20000}
         position={[1.09, 1.2, -8.1]}
