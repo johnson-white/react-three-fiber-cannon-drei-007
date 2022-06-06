@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { LayerMaterial, Depth, Color, Fresnel, Noise, Normal } from "lamina";
 
-export default function MainScene4() {
+export default function HomeScene() {
   const torus = useRef();
 
   useFrame((state, delta) => {

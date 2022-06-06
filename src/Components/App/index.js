@@ -131,7 +131,6 @@ function App() {
           transform
           position={[0, 1.5, 0]}
           distanceFactor={10}
-          sprite
         >
           <div className="">
             <NavBar updateActiveScene={updateActiveScene}></NavBar>
