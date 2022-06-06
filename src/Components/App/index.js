@@ -7,6 +7,7 @@ import style from "./App.module.css";
 import Home from "../Pages/Home";
 import Skills from "../Pages/Skills";
 import NavBar from "../Pages/DOMComponents/NavBar";
+import ContactScene from "../Scenes/ContactScene";
 
 function App() {
   const state = useThree();
@@ -67,18 +68,18 @@ function App() {
   });
 
   // constantly animates camera to co-ords above
-  useFrame((st, dt) => {
-    //camera moves to new position
-    st.camera.position.lerp(
-      view.targetPosition,
-      THREE.MathUtils.damp(0, 1, 2, dt * 10)
-    );
-    //camera rotates to new position
-    st.camera.quaternion.slerp(
-      view.targetQuaternion,
-      THREE.MathUtils.damp(0, 1, 2, dt * 10) // divided further for more granular slerp
-    );
-  });
+  // useFrame((st, dt) => {
+  //   //camera moves to new position
+  //   st.camera.position.lerp(
+  //     view.targetPosition,
+  //     THREE.MathUtils.damp(0, 1, 2, dt * 10)
+  //   );
+  //   //camera rotates to new position
+  //   st.camera.quaternion.slerp(
+  //     view.targetQuaternion,
+  //     THREE.MathUtils.damp(0, 1, 2, dt * 10) // divided further for more granular slerp
+  //   );
+  // });
 
   //used by nav Links to setActiveScene
   function updateActiveScene(string) {
@@ -114,7 +115,7 @@ function App() {
 
   return (
     <>
-      {/* <OrbitControls></OrbitControls> */}
+      <OrbitControls></OrbitControls>
 
       <mesh
         position={scenes[4].lookFrom
@@ -123,6 +124,7 @@ function App() {
           .toArray()} //use scene value with manual adjustment
         rotation-y={-Math.PI / 2}
       >
+        <ContactScene></ContactScene>
         <ringGeometry args={[2, 10, 4, 1, 1.57, 6.2832]} />
         <meshLambertMaterial color="aquamarine" opacity={0.95} transparent />
         <Html
