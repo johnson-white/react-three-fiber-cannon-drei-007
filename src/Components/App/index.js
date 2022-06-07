@@ -8,6 +8,7 @@ import Home from "../Pages/Home";
 import Skills from "../Pages/Skills";
 import NavBar from "../Pages/DOMComponents/NavBar";
 import ContactScene from "../Scenes/ContactScene";
+import Contact from "../Pages/Contact";
 
 function App() {
   const state = useThree();
@@ -72,12 +73,12 @@ function App() {
     //camera moves to new position
     st.camera.position.lerp(
       view.targetPosition,
-      THREE.MathUtils.damp(0, 1, 2, dt * 10)
+      THREE.MathUtils.damp(0, 1, 2, dt * 2)
     );
     //camera rotates to new position
     st.camera.quaternion.slerp(
       view.targetQuaternion,
-      THREE.MathUtils.damp(0, 1, 2, dt * 10) // divided further for more granular slerp
+      THREE.MathUtils.damp(0, 1, 2, dt * 1) // divided further for more granular slerp
     );
   });
 
@@ -141,33 +142,7 @@ function App() {
             position={[0, 1.5, 0]}
             distanceFactor={10}
           >
-            <div className="">
-              <NavBar updateActiveScene={updateActiveScene}></NavBar>
-              <h1>CONTACT</h1>
-              <p>
-                Message me here with job or networking opportunities and I will
-                see them and respond really quickly!
-              </p>
-              <p>
-                <a
-                  href="https://www.linkedin.com/in/johnsonsingh/"
-                  target="_blank"
-                >
-                  LinkedIn
-                </a>
-              </p>
-              <p>
-                I'm very active on GitHub (with ~700 commits this year) and you
-                can find Front End React, Back End Express and JWT, and Unity 3D
-                C# projects!
-              </p>
-              <p>
-                <a href="https://github.com/bM7tcHF88GBxDni" target="_blank">
-                  GitHub
-                </a>
-              </p>
-              <div>Site under development.</div>
-            </div>
+            <Contact updateActiveScene={updateActiveScene}></Contact>
           </Html>
         </mesh>
       </group>

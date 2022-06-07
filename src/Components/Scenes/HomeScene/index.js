@@ -40,7 +40,7 @@ export default function HomeScene() {
         />
         <Fresnel
           mode="softlight"
-          color="ff00e3"
+          color="white"
           intensity={1}
           power={2}
           bias={0}

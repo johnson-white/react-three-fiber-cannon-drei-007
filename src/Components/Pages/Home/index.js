@@ -23,7 +23,6 @@ function Home({ updateActiveScene }) {
         </a>
         !
       </p>
-      <div>Site under development.</div>
       <p>
         {" "}
         You can view the code{" "}

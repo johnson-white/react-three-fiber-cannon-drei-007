@@ -19,7 +19,6 @@ function Skills({ updateActiveScene }) {
       <p>
         <span>2017</span> Java{" "}
       </p>
-      <div>Site under development.</div>
     </div>
   );
 }

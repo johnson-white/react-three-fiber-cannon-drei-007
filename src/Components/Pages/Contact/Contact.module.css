@@ -1,0 +1,23 @@
+.contact {
+  width: 90vw;
+}
+
+.contact p span {
+  color: black;
+  border: 0.1em black solid;
+  border-radius: 1em;
+  padding: 0.1em 0.8em;
+}
+
+.contact a {
+  color: black;
+  border: 0.1em black solid;
+  border-radius: 1em;
+  padding: 0.1em 0.8em;
+
+  text-decoration: none;
+}
+
+.contact a:hover {
+  background-color: white;
+}
