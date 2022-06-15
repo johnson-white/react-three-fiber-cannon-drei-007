@@ -16,8 +16,9 @@ function Contact({ updateActiveScene }) {
         </a>
       </p>
       <p>
-        I'm very active on GitHub (with ~700 commits this year) and you can find
-        Front End React, Back End Express and JWT, and Unity 3D C# projects!
+        I'm very active on GitHub (with ~800 commits this year) and you can find
+        at least 9 projects across Front End React, Back End Express and JWT,
+        and Unity 3D C#!
       </p>
       <p>
         <a href="https://github.com/bM7tcHF88GBxDni" target="_blank">

@@ -47,8 +47,8 @@ export default function NavBar({ updateActiveScene }) {
           text={`SKI/_/_S_`}
           updateActiveScene={updateActiveScene}
         ></NavText>
-        <h1>++PROJECTS</h1>
-        <h1>ABOUT_M:</h1>
+        {/* <h1>++PROJECTS</h1>
+        <h1>ABOUT_M:</h1> */}
         <NavText
           scene={"contact"}
           text={`C_NT_CT`}

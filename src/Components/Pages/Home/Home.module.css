@@ -1,11 +1,12 @@
 .home {
   width: 90vw;
+  line-height: 1.7em;
 }
 
 .home p span {
   color: black;
   border: 0.1em black solid;
-  border-radius: 1em;
+  border-radius: 0;
   padding: 0.1em 0.8em;
 }
 
@@ -19,5 +20,5 @@
 }
 
 .home a:hover {
-  background-color: white;
+  background-color: lawngreen;
 }
