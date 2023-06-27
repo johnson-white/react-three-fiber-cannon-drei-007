@@ -15,13 +15,13 @@ function Home({ updateActiveScene }) {
       <NavBar updateActiveScene={updateActiveScene}></NavBar>
       <h1>JOHNSON SINGH</h1>
       <p>
-        I'm a full stack web and game developer, and now a graduate of the
+        I'm a full stack web and hobbyist game developer, and a graduate of the
         School of Code bootcamp. I am technically and creatively skilled and
         constantly think about user experience and product design!
       </p>
       <p style={highlight}>
-        I'm looking for my first job as a <span>Full Stack</span> or{" "}
-        <span>Front End</span> developer!
+        I'm open to opportunities as a <span>Front End</span> or{" "}
+        <span>Full Stack</span> developer!
       </p>
       <h1>++PROJECTS</h1>
       <p>
